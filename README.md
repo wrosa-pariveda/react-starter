@@ -12,3 +12,4 @@ Comprehensive starter for enterprise level React PWA
 * **Thunk** for async actions (data HTTP calls)
 * **Material-UI** component library with example theming
 * Powerfull form builder with **Redux-Form**
+* **Typescript** and **JSX** free
