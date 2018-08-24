@@ -1,6 +1,6 @@
 import Chunk2 from '../containers/chunk2';
 import Home from '../containers/home';
-import { asyncComponent } from '../components';
+import asyncComponent from '../components/async_component';
 
 const routes = {
     home: {

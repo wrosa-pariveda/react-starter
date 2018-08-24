@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router';
-import routes from './routes';
+import routes from './routes/routes';
 
 const el = React.createElement;
 
