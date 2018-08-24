@@ -1,5 +1,5 @@
 # react-starter
-Comprehensive starter for enterprise level React PWA
+Comprehensive starter template for enterprise level React PWA projects
 
 ## Main Features
 * Package bundler with **Webpack 4**
