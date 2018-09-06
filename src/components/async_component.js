@@ -9,7 +9,7 @@ const asyncComponent = (getComponent) => {
             this.state = { Component: null };
         }
 
-        componentWillMount() {
+        componentDidMount() {
             if (!this.state.Component) {
                 getComponent().then(Component => {
                     this.setState({ Component });

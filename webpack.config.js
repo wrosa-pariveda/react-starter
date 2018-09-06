@@ -13,5 +13,4 @@ module.exports = {
       new UglifyJsPlugin()
     ]
   }
-  //watch: true
 };
