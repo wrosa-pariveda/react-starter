@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import routes from '../routes/routes';
+import { Routes, RouterPropTypes } from '../routes';
 import BasePage from '../components/base_page';
 
 const el = React.createElement;
@@ -14,9 +14,15 @@ class HomePage extends React.PureComponent {
     render() {
         return el('div', null,
             el(BasePage, { title: 'Home' },
-                el(Link, { to: routes.sideLoad.path }, 'Side Load Example Page'),
-                el('br'),
-                el(Link, { to: routes.async.path }, 'Async Example Page')
+                el(Grid, { container: true },
+                    el(Grid, { item: true, xs: 3 }),
+                    el(Grid, { item: true, xs: 6 },
+                        el(Link, { to: Routes.lazyLoad.path }, 'Lazy Load Example Page'),
+                        el('p'),
+                        el(Link, { to: Routes.async.path }, 'Async Example Page')
+                    ),
+                    el(Grid, { item: true, xs: 3 }),
+                )
             ),
         );
     }
@@ -28,9 +34,9 @@ HomePage.propTypes = {
     // Mapped
 
     // Router
-    history: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired,
+    history: RouterPropTypes.history,
+    location: RouterPropTypes.location,
+    match: RouterPropTypes.match,
 
     // Styles
 };

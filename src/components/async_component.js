@@ -2,10 +2,6 @@ import React from "react";
 
 const el = React.createElement;
 
-/**
- * @param {() => Promise<React.ReactNode>} getComponent
- * @returns {React.PureComponent}
- */
 const asyncComponent = (getComponent) => {
     return class extends React.PureComponent {
         constructor(props) {

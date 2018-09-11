@@ -1,26 +1,11 @@
+import PropTypes from 'prop-types';
 import { STORE_COMMENT } from '../actions/comments_actions';
 
-/**
- * @typedef {Object} CommentsReducerState
- * @prop {import('../actions/app_actions').Comment[]} list
- * @prop {number} lastId
- * 
- * @typedef {import('../store').ReduxAction} ReduxAction
- */
-
-/**
- * @type {CommentsReducerState}
- */
 const initialState = {
     list: [],
     lastId: 0
 };
 
-/**
- * @param {CommentsReducerState} state 
- * @param {ReduxAction} action
- * @returns {CommentsReducerState}
- */
 export default function commentsReducer(state = initialState, action) {
     switch (action.type) {
         case STORE_COMMENT:
@@ -40,3 +25,14 @@ export default function commentsReducer(state = initialState, action) {
             return state;
     }
 }
+
+export const CommentsReducerStatePropType = PropTypes.shape({
+    lastId: PropTypes.number.isRequired,
+    list: PropTypes.arrayOf(PropTypes.shape({
+        postId: PropTypes.number.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        email: PropTypes.string,
+        body: PropTypes.string
+    }))
+});

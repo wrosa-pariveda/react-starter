@@ -7,21 +7,6 @@ import { toggleSideMenuActionCreator } from '../redux/actions/app_actions';
 
 const el = React.createElement;
 
-/**
- * @typedef {Object} Props
- * Own
- * @prop {string} title
- * Mapped
- * @prop {()=>void} openMenu
- * Styles
- * @prop {{[key:string]:React.CSSProperties}} classes
- */
-
-/**
- * @param {Props} props 
- * @returns {React.ReactNode}
- */
-
 const BasePage = (props) => {
     return el('div', null,
         el(AppBar, null,
@@ -60,13 +45,7 @@ const styles = {
     }
 };
 
-/**
- * @typedef {import('../redux/store').ReduxAction} ReduxAction
- * @param {(action:ReduxAction) => void} dispatch 
- * @param {Props} ownProps 
- * @returns {Partial<Props>}
- */
-function mapActionsToProps(dispatch, ownProps) {
+function mapActionsToProps(dispatch) {
     return {
         openMenu: () => dispatch(toggleSideMenuActionCreator(true))
     }
@@ -74,5 +53,5 @@ function mapActionsToProps(dispatch, ownProps) {
 
 export default compose(
     withStyles(styles),
-    connect(null, mapActionsToProps)
+    connect(undefined, mapActionsToProps)
 )(BasePage);

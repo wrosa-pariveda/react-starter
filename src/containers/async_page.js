@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Grid, Button, List, ListItem, ListItemText } from '@material-ui/core';
+import { Grid, Button, List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
 import { connect } from 'react-redux';
+import { RouterPropTypes } from '../routes';
 import BasePage from '../components/base_page';
+import { CommentsReducerStatePropType } from '../redux/reducers/comments_reducer';
 import { fetchCommentActionCreator } from '../redux/actions/comments_actions';
 
 const el = React.createElement;
@@ -31,8 +32,11 @@ class AsyncPage extends React.PureComponent {
                     el(Grid, { item: true, xs: 6 },
                         el('p', null, 'This page uses the jsonplaceholder api to generate fake async content, with is then stored in Redux through Thunk middleware'),
                         el(Button, { onClick: () => this.handleClick(), variant: 'raised', color: 'primary' }, 'Load More Comments'),
+                        el('div', { hidden: !this.state.loading },
+                            el(CircularProgress)
+                        ),
                         el(List, null,
-                            this.props.commentList.map(comment => {
+                            this.props.comments.list.map(comment => {
                                 return el(ListItem, { key: `${comment.id}-${comment.postId}` },
                                     el(ListItemText, { primary: comment.email, secondary: comment.name })
                                 )
@@ -46,42 +50,29 @@ class AsyncPage extends React.PureComponent {
     }
 }
 
-/**
- * @param {import('../redux/store').ReduxState} state
- */
+AsyncPage.propTypes = {
+    // Own
+
+    // Mapped
+    comments: CommentsReducerStatePropType,
+
+    // Router
+    history: RouterPropTypes.history,
+    location: RouterPropTypes.location,
+    match: RouterPropTypes.match,
+
+    // Styles
+};
+
 function mapStateToProps(state) {
     return {
-        commentList: state.comments.list
+        comments: state.comments
     }
 }
-/**
- * @typedef {import('../redux/store').ReduxAction} ReduxAction
- * @param {(action:ReduxAction) => void} dispatch
- */
 function mapActionsToProps(dispatch) {
     return {
         fetchNextComment: () => dispatch(fetchCommentActionCreator())
     }
 }
-
-AsyncPage.propTypes = {
-    // Own
-
-    // Mapped
-    commentList: PropTypes.arrayOf(PropTypes.shape({
-        postId: PropTypes.number.isRequired,
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
-        body: PropTypes.string
-    })),
-
-    // Router
-    history: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired,
-
-    // Styles
-};
 
 export default connect(mapStateToProps, mapActionsToProps)(AsyncPage);
