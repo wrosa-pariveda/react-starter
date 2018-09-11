@@ -13,7 +13,7 @@ const el = React.createElement;
  * Mapped
  * @prop {()=>void} open
  * @prop {()=>void} onClose
- * Style
+ * Styles
  */
 
 /**

@@ -1,6 +1,7 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import appReducer from './reducers/app_reducer';
+import commentsReducer from './reducers/comments_reducer';
 
 /**
  * @typedef {Object} ReduxAction
@@ -9,12 +10,16 @@ import appReducer from './reducers/app_reducer';
  * 
  * @typedef {Object} ReduxState
  * @prop {import('./reducers/app_reducer').AppReducerState} app
+ * @prop {import('./reducers/comments_reducer').CommentsReducerState} comments
  */
 
+const API_URI = 'https://jsonplaceholder.typicode.com';
+
 const combinedReducers = combineReducers({
-    app: appReducer
+    app: appReducer,
+    comments: commentsReducer
 });
 
-const store = createStore(combinedReducers, applyMiddleware(thunk));
+const store = createStore(combinedReducers, applyMiddleware(thunk.withExtraArgument({ api: API_URI })));
 
 export default store;

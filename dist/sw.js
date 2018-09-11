@@ -1,8 +1,7 @@
 const CACHE_NAME = "app-shell-v0.1";
 const urlsToCache = [
     //'/main.js',
-    //'/chunk1.js',
-    //'/chunk2.js',
+    //'/side_load.js',
     '/static/favicon.ico',
     '/static/image_example.png'
 ];

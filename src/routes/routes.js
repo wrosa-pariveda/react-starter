@@ -1,20 +1,31 @@
-import Chunk2 from '../containers/chunk2';
-import Home from '../containers/home';
+import React from 'react';
+import AsyncPage from '../containers/async_page';
+import HomePage from '../containers/home_page';
 import asyncComponent from '../components/async_component';
 
+/**
+ * @typedef {Object} Route
+ * @prop {string} path
+ * @prop {React.ReactNode} component
+ * @prop {boolean} exact
+ */
+
+/**
+ * @type {{[key:string]:Route}}
+ */
 const routes = {
     home: {
         path: '/',
-        component: Home,
+        component: HomePage,
         exact: true
     },
-    chunk1: {
-        path: '/chunk1',
-        component: asyncComponent(() => import(/* webpackChunkName: "chunk1" */ '../containers/chunk1').then(module => module.default))
+    sideLoad: {
+        path: '/sideLoad',
+        component: asyncComponent(() => import(/* webpackChunkName: "side_load" */ '../containers/side_load').then(module => module.default))
     },
-    chunk2: {
-        path: '/chunk2',
-        component: Chunk2
+    async: {
+        path: '/async',
+        component: AsyncPage
     }
 };
 

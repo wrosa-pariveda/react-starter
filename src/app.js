@@ -8,9 +8,12 @@ import SideMenu from './components/side_menu';
 
 const el = React.createElement;
 
+/**
+ * @returns {React.ReactNode}
+ */
 const App = () => {
     return el('div', null,
-        el(React.StrictMode, null,
+        //el(React.StrictMode, null,
             el(Provider, { store },
                 el(React.Fragment, null,
                     el(SideMenu),
@@ -21,7 +24,7 @@ const App = () => {
                     )
                 )
             )
-        )
+        //)
     );
 };
 

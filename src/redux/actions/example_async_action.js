@@ -1,13 +1,14 @@
-import exampleActionCreator from './example_action';
+import { storeCommentActionCreator } from './app_actions';
 
 export const EXAMPLE_ASYNC_TYPE = 'EXAMPLE_ASYNC';
-export default function exampleAsyncActionCreator(text) {
-    return (dispatch, getState) => {
-        return fetch('')
+export default function asyncStoreCommentActionCreator() {
+    return (dispatch, getState, api) => {
+        const reduxState = getState();
+        const nextComment = reduxState.comments.lastId + 1;
+        return fetch(`${api}/comments/${nextComment}`)
             .then(response => response.json())
-            .then(data => {
-                const currentText = getState().example.text;
-                dispatch(exampleActionCreator(`${currentText} ${data}`));
+            .then(comment => {
+                dispatch(storeCommentActionCreator(comment));
             })
     };
 }

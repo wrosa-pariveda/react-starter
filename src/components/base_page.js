@@ -7,6 +7,21 @@ import { toggleSideMenuActionCreator } from '../redux/actions/app_actions';
 
 const el = React.createElement;
 
+/**
+ * @typedef {Object} Props
+ * Own
+ * @prop {string} title
+ * Mapped
+ * @prop {()=>void} openMenu
+ * Styles
+ * @prop {{[key:string]:React.CSSProperties}} classes
+ */
+
+/**
+ * @param {Props} props 
+ * @returns {React.ReactNode}
+ */
+
 const BasePage = (props) => {
     return el('div', null,
         el(AppBar, null,
@@ -32,6 +47,9 @@ BasePage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
+/**
+ * @type {{[key:string]:React.CSSProperties}}
+ */
 const styles = {
     menuButton: {
         marginLeft: -12,
@@ -42,6 +60,12 @@ const styles = {
     }
 };
 
+/**
+ * @typedef {import('../redux/store').ReduxAction} ReduxAction
+ * @param {(action:ReduxAction) => void} dispatch 
+ * @param {Props} ownProps 
+ * @returns {Partial<Props>}
+ */
 function mapActionsToProps(dispatch, ownProps) {
     return {
         openMenu: () => dispatch(toggleSideMenuActionCreator(true))

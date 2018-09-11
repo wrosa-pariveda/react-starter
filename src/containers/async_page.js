@@ -2,14 +2,14 @@ import React from 'react';
 
 const el = React.createElement;
 
-class Chunk2 extends React.PureComponent {
+class AsyncPage extends React.PureComponent {
     constructor(props) {
         super(props);
     }
 
     render() {
-        return el('div', null, 'Chunk 2');
+        return el('div', null, 'Async Page');
     }
 }
 
-export default Chunk2;
+export default AsyncPage;
