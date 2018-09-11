@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import routes from '../routes/routes';
 import BasePage from '../components/base_page';
@@ -20,5 +21,18 @@ class HomePage extends React.PureComponent {
         );
     }
 }
+
+HomePage.propTypes = {
+    // Own
+
+    // Mapped
+
+    // Router
+    history: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired,
+
+    // Styles
+};
 
 export default HomePage;

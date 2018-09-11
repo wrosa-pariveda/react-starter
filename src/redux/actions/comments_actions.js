@@ -13,7 +13,7 @@ export function storeCommentActionCreator(comment) {
     };
 }
 
-export default function fetchCommentActionCreator() {
+export function fetchCommentActionCreator() {
     return (dispatch, getState, api) => {
         const reduxState = getState();
         const nextComment = reduxState.comments.lastId + 1;

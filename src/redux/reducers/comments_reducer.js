@@ -26,10 +26,10 @@ export default function commentsReducer(state = initialState, action) {
         case STORE_COMMENT:
             const id = action.payload.id;
             const newList = state.list.slice();
-            if (state.list.indexOf(id) === -1) {
+            if (state.list.indexOf(id - 1) === -1) {
                 newList.push(action.payload);
             } else {
-                newList[id] = action.comment;
+                newList[id - 1] = action.comment;
             }
             return {
                 ...state,

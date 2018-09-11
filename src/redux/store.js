@@ -13,13 +13,13 @@ import commentsReducer from './reducers/comments_reducer';
  * @prop {import('./reducers/comments_reducer').CommentsReducerState} comments
  */
 
-const API_URI = 'https://jsonplaceholder.typicode.com';
+const api = 'https://jsonplaceholder.typicode.com';
 
 const combinedReducers = combineReducers({
     app: appReducer,
     comments: commentsReducer
 });
 
-const store = createStore(combinedReducers, applyMiddleware(thunk.withExtraArgument({ api: API_URI })));
+const store = createStore(combinedReducers, applyMiddleware(thunk.withExtraArgument(api)));
 
 export default store;
