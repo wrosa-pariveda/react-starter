@@ -1,4 +1,4 @@
-import { STORE_COMMENT } from '../actions/app_actions';
+import { STORE_COMMENT } from '../actions/comments_actions';
 
 /**
  * @typedef {Object} CommentsReducerState

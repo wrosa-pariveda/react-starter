@@ -16,10 +16,12 @@ const App = () => {
         //el(React.StrictMode, null,
             el(Provider, { store },
                 el(React.Fragment, null,
-                    el(SideMenu),
                     el(BrowserRouter, null,
-                        el(Switch, null,
-                            Object.keys(routes).map(routeKey => el(Route, { key: routeKey, ...routes[routeKey] }))
+                        el(React.Fragment, null,
+                            el(SideMenu),
+                            el(Switch, null,
+                                Object.keys(routes).map(routeKey => el(Route, { key: routeKey, ...routes[routeKey] }))
+                            )
                         )
                     )
                 )
