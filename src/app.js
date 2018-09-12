@@ -17,7 +17,7 @@ const App = () => {
                     el(React.Fragment, null,
                         el(SideMenu),
                         el(Switch, null,
-                            Object.keys(Routes).map(routeKey => el(Route, { key: routeKey, ...Routes[routeKey] }))
+                            Object.keys(routes).map(routeKey => el(Route, { key: routeKey, ...routes[routeKey] }))
                         )
                     )
                 )

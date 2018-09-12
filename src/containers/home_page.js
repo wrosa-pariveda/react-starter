@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { Routes, RouterPropTypes } from '../routes';
+import { routes, RouterPropTypes } from '../routes';
 import BasePage from '../components/base_page';
 
 const el = React.createElement;
@@ -17,9 +17,9 @@ class HomePage extends React.PureComponent {
                 el(Grid, { container: true },
                     el(Grid, { item: true, xs: 3 }),
                     el(Grid, { item: true, xs: 6 },
-                        el(Link, { to: Routes.lazyLoad.path }, 'Lazy Load Example Page'),
+                        el(Link, { to: routes.lazyLoad.path }, 'Lazy Load Example Page'),
                         el('p'),
-                        el(Link, { to: Routes.async.path }, 'Async Example Page')
+                        el(Link, { to: routes.async.path }, 'Async Example Page')
                     ),
                     el(Grid, { item: true, xs: 3 }),
                 )

@@ -2,7 +2,7 @@ import AsyncPage from '../containers/async_page';
 import HomePage from '../containers/home_page';
 import asyncComponent from '../components/async_component';
 
-const Routes = {
+const routes = {
     home: {
         path: '/',
         component: HomePage,

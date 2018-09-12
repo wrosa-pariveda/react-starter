@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { withStyles, Drawer, List, ListItem, ListItemText, ListItemIcon, Icon } from '@material-ui/core';
-import { Routes, RouterPropTypes } from '../routes';
+import { routes, RouterPropTypes } from '../routes';
 import { AppReducerStatePropType } from '../redux/reducers/app_reducer';
 import { toggleSideMenuActionCreator } from '../redux/actions/app_actions';
 
@@ -21,15 +21,15 @@ const SideMenu = (props) => {
     return el(Drawer, { open, onClose: close },
         el('div', { className: classes.menuList },
             el(List, null,
-                el(ListItem, { onClick: () => handleClick(Routes.home.path), button: true },
+                el(ListItem, { onClick: () => handleClick(routes.home.path), button: true },
                     el(ListItemIcon, null, el(Icon, null, 'home')),
                     el(ListItemText, { primary: 'Home Page' })
                 ),
-                el(ListItem, { onClick: () => handleClick(Routes.lazyLoad.path), button: true },
+                el(ListItem, { onClick: () => handleClick(routes.lazyLoad.path), button: true },
                     el(ListItemIcon, null, el(Icon, null, 'cloud_download')),
                     el(ListItemText, { primary: 'Lazy Load Example Page' })
                 ),
-                el(ListItem, { onClick: () => handleClick(Routes.async.path), button: true },
+                el(ListItem, { onClick: () => handleClick(routes.async.path), button: true },
                     el(ListItemIcon, null, el(Icon, null, 'comment')),
                     el(ListItemText, { primary: 'Async Example Page' })
                 )

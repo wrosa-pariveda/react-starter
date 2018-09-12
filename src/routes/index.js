@@ -1,4 +1,4 @@
 import RouterPropTypes from './router_props';
-import Routes from './routes';
+import routes from './routes';
 
-export { Routes, RouterPropTypes };
+export { routes, RouterPropTypes };
