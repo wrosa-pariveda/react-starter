@@ -18,4 +18,4 @@ const routes = {
     }
 };
 
-export default Routes;
+export default routes;

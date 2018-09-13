@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router';
 import { Provider } from 'react-redux';
-import { Routes } from './routes';
+import { routes } from './routes';
 import store from './redux/store';
 import SideMenu from './components/side_menu';
 

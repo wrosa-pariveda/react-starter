@@ -19,7 +19,10 @@ class HomePage extends React.PureComponent {
                     el(Grid, { item: true, xs: 6 },
                         el(Link, { to: routes.lazyLoad.path }, 'Lazy Load Example Page'),
                         el('p'),
-                        el(Link, { to: routes.async.path }, 'Async Example Page')
+                        el(Link, { to: routes.async.path }, 'Async Example Page'),
+                        el('div', { style: { margin: 20, textAlign: 'center' } },
+                            el('img', { src: './static/image_example.png', style: {width: 500} })
+                        )
                     ),
                     el(Grid, { item: true, xs: 3 }),
                 )
